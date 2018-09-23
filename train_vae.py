@@ -94,11 +94,11 @@ def main():
         mu, _ = enc(x)
         x_gen = dec(mu)
     save_images(x.data, os.path.join(args.out, 'train'))
-    save_images(x1.data, os.path.join(args.out, 'train_reconstructed'))
+    save_images(x_gen.data, os.path.join(args.out, 'train_reconstructed'))
 
     z = chainer.Variable(np.random.normal(0, 1, (9, args.dimz)).astype(np.float32))
-    x = dec(z)
-    save_images(x.data, os.path.join(args.out, 'sampled'))
+    x_gen = dec(z)
+    save_images(x_gen.data, os.path.join(args.out, 'sampled'))
 
 if __name__ == '__main__':
     # This enables a ctr-C without triggering errors
