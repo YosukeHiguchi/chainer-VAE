@@ -47,4 +47,3 @@ class VAEUpdater(chainer.training.StandardUpdater):
 
         chainer.report({'rec_loss': rec_loss})
         chainer.report({'loss': loss})
-
